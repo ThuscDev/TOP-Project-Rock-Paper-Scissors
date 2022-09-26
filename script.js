@@ -7,6 +7,10 @@ function getComputerChoice() {
 
 }
 
+function userPrompt(){
+    let playerPrompt = prompt("Rock Paper Scissors GO: ");
+    return playerPrompt;
+}
 
 //A function to play a single round
 function playRound(playerSelection, computerSelection) {
@@ -27,24 +31,30 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-let playerSelection = prompt("Rock Paper Scissors GO: ");
-let computerSelection = getComputerChoice();
-
 // Function to play the game up to 5 rounds
 function game() {
     for (let i = 0; i < 5; i++) {
-        if (i < 5) {
+        if (i <= 5) {
 
-            playRound();
-            console.log(i);
+            /*let playerSelection = prompt("Rock Paper Scissors GO: ");
+            playRound(playerSelection, computerSelection);
+            console.log(i);*/
+
+            //fresh start
+
+            let playerSelection = userPrompt();
+            let computerSelection = getComputerChoice();
+            console.log(playerSelection);
+            console.log(computerSelection);
+            console.log(playRound(playerSelection, computerSelection));
+            
+            
         } else {
-            console.log("Game Over")
+            console.log("Game Over");
         }
     }
 
-    return playRound(playerSelection, computerSelection);
+    
 }
 
-console.log(computerSelection);
-console.log(playerSelection);
-console.log(game());
+game();
